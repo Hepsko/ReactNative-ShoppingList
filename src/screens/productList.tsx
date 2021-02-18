@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
-import {  Text, View, FlatList, TouchableOpacity } from 'react-native';
+import {Text, View, FlatList, TouchableOpacity, Button} from 'react-native';
+import {StackNavigationProp} from "@react-navigation/stack";
+import {RouteParamList} from "../paramlist/RouteParamList";
 
 
-export default function ProductList({}) {
+export default function ProductList({navigation}: {navigation: StackNavigationProp<RouteParamList, "ProductList">}) {
     const [product, setProduct] = useState([{name:'example', key:'1'}]);
     return (
         <View>
@@ -14,7 +16,7 @@ export default function ProductList({}) {
                     </TouchableOpacity>
                 )}
             />
-
+            <Button title="Add product" onPress={()=> {navigation.navigate('AddProduct')}}/>
         </View>
     );
 }
