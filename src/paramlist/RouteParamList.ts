@@ -2,10 +2,11 @@ import {StackNavigationProp} from "@react-navigation/stack";
 import {RouteProp} from "@react-navigation/native";
 
 export type RouteParamList={
-    ProductList: {
-        productToAdd: string,
-    },
-    AddProduct: undefined,
+    ProductList: undefined,
+    AddProduct:
+        {
+            submitHandler: (text: string) => void
+        },
 }
 
 export type RouteNavProps<T extends keyof RouteParamList> ={

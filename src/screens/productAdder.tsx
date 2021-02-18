@@ -8,6 +8,7 @@ export default function AddProduct({navigation, route}:RouteNavProps<'AddProduct
     const changeHandler = (val: string) =>{
         setText(val);
     }
+    const {submitHandler} = route.params;
     return (
         <View>
             <TextInput
@@ -15,7 +16,8 @@ export default function AddProduct({navigation, route}:RouteNavProps<'AddProduct
                 onChangeText={changeHandler}>
             </TextInput>
             <Button onPress={()=> {
-                navigation.navigate('ProductList', {productToAdd: text} )}
+                submitHandler(text)
+                navigation.navigate('ProductList')}
             } title='Add Product'  color='black' />
         </View>
     );

@@ -14,7 +14,7 @@ export const Home:React.FC<RoutersProps> = ({}) =>{
     return(
         <NavigationContainer>
             <Stack.Navigator initialRouteName="ProductList">
-                <Stack.Screen name={"ProductList"} component={ProductList} initialParams={{ productToAdd: '' }}/>
+                <Stack.Screen name={"ProductList"} component={ProductList} />
                 <Stack.Screen name={"AddProduct"} component={AddProduct}/>
             </Stack.Navigator>
         </NavigationContainer>
