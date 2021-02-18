@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import {Button, Text, TextInput, View} from 'react-native';
-import {StackNavigationProp} from "@react-navigation/stack";
-import {RouteParamList} from "../paramlist/RouteParamList";
+import {RouteNavProps} from "../paramlist/RouteParamList";
 
-export default function AddProduct({navigation}:{navigation: StackNavigationProp<RouteParamList, "AddProduct">}) {
+
+export default function AddProduct({navigation, route}:RouteNavProps<'AddProduct'>) {
     const [text, setText]= useState('');
     const changeHandler = (val: string) =>{
         setText(val);
@@ -11,10 +11,12 @@ export default function AddProduct({navigation}:{navigation: StackNavigationProp
     return (
         <View>
             <TextInput
-                placeholder="new todo"
+                placeholder="Add product"
                 onChangeText={changeHandler}>
             </TextInput>
-            <Button onPress={()=> console.log('xd')} title='Add Prduct'  color='black' />
+            <Button onPress={()=> {
+                navigation.navigate('ProductList', {productToAdd: text} )}
+            } title='Add Product'  color='black' />
         </View>
     );
 }
