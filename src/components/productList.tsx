@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {  Text, View, FlatList, TouchableOpacity } from 'react-native';
 
 
-export default function List({}) {
+export default function ProductList({}) {
     const [product, setProduct] = useState([{name:'example', key:'1'}]);
     return (
         <View>

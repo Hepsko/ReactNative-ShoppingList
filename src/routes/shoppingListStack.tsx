@@ -1,11 +1,11 @@
 import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native'
-import List from '../components/list'
+import ProductList from '../components/productList'
 import AddProduct from '../components/productAdder'
 
 type RootStackParamList = {
-    List: undefined,
+    ProductList: undefined,
     AddProduct: undefined
 };
 
@@ -16,8 +16,8 @@ export const Home:React.FC<RoutersProps> = ({}) =>{
     const Stack = createStackNavigator<RootStackParamList>();
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="List">
-                <Stack.Screen name={"List"} component={List}/>
+            <Stack.Navigator initialRouteName="ProductList">
+                <Stack.Screen name={"ProductList"} component={ProductList}/>
                 <Stack.Screen name={"AddProduct"} component={AddProduct}/>
             </Stack.Navigator>
         </NavigationContainer>
