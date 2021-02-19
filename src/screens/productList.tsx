@@ -1,5 +1,5 @@
 import React, { useState} from 'react'
-import {Text, View, FlatList, TouchableOpacity, Button, StyleSheet} from 'react-native';
+import {Text, View, FlatList, TouchableOpacity, StyleSheet, Alert} from 'react-native';
 import { CheckBox } from 'react-native-elements'
 import {RouteNavProps} from "../paramlist/RouteParamList";
 import {Card} from "../components/card"
@@ -7,6 +7,18 @@ import {MaterialIcons} from '@expo/vector-icons'
 import AddButton from '../components/addButton'
 import TrashButton from '../components/trashButton'
 export default function ProductList({navigation, route}: RouteNavProps<'ProductList'>) {
+
+    const removeAll = () =>{
+        Alert.alert('REMOVE ALL ', 'All products will be removed',[
+                {
+                    text: "Cancel",
+                    style: "cancel"
+                },
+        { text: "Remove", onPress: () => setProduct([]) }
+    ],
+        { cancelable: true })
+
+    }
 
     const handleUpdateProducts = (key: string) => {
         setProduct((prevProducts) =>
@@ -74,7 +86,7 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
                 )}
             />
             <View style={styles.buttonTrash}>
-                <TrashButton onPress={()=> console.log("xd")}/>
+                <TrashButton onPress={()=> removeAll()}/>
             </View>
             <View style={styles.buttonAdd}>
                 <AddButton   text="+" onPress={()=> {navigation.navigate('AddProduct', {submitHandler})}}/>
