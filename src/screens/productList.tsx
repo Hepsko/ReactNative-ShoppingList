@@ -46,6 +46,7 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
                 style={styles.content}
                 data={product}
                 renderItem={({item})=>(
+                    <TouchableOpacity onLongPress={()=>handleDeleteProducts(item.key)}>
                     <View>
                         <Card>
                             <Text>{item.name}</Text>
@@ -58,19 +59,18 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
                                     checkedColor='green'
                                     checked={item.checked}
                                     onPress={() =>handleUpdateProducts(item.key)}
-                                    onLongPress={()=>handleDeleteProducts(item.key)}
                                 /> }
                                 <TouchableOpacity
                                     onPress={() =>deleteProduct(item.key)}>
                                     { item.toDelete && <MaterialIcons
                                         name='delete'
                                         size={20}
-                                        color='black'/>
-                                    }
+                                        color='black'/>}
                                 </TouchableOpacity>
                             </View>
                         </Card>
-                    </View>
+                       </View>
+                    </TouchableOpacity>
                 )}
             />
             <View style={styles.buttonTrash}>
@@ -82,8 +82,6 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
         </View>
     );
 }
-
-
 
 
 const styles = StyleSheet.create({
@@ -114,5 +112,4 @@ const styles = StyleSheet.create({
         alignSelf: "flex-start",
         padding: 12
     },
-
 })
