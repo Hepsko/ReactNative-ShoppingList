@@ -23,6 +23,14 @@ const styles = StyleSheet.create({
         paddingBottom:5,
         backgroundColor: '#f01d71',
         justifyContent: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 25,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+        elevation: 5,
     },
     buttonText: {
         textAlign: 'center',

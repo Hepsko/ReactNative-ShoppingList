@@ -19,6 +19,7 @@ const styles = StyleSheet.create(
             flexDirection: 'row',
             alignItems:'center',
             justifyContent:'center',
+
         },
         headerText:{
             borderRadius: 10,
@@ -28,6 +29,14 @@ const styles = StyleSheet.create(
             fontSize: 20,
             color: 'white',
             letterSpacing:1,
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 3,
+            },
+            shadowOpacity: 0.27,
+            shadowRadius: 4.65,
+            elevation: 6,
         },
     }
 

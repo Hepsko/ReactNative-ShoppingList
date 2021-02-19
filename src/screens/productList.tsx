@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     content:{
         flex:1,
         marginHorizontal:20,
-        marginBottom:110
+        marginBottom:110,
     },
     checkbox:
         {
