@@ -10,14 +10,9 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
 
     const removeAll = () =>{
         Alert.alert('REMOVE ALL ', 'All products will be removed',[
-                {
-                    text: "Cancel",
-                    style: "cancel"
-                },
-        { text: "Remove", onPress: () => setProduct([]) }
-    ],
+                {text: "Cancel", style: "cancel"},
+                { text: "Remove", onPress: () => setProduct([]) }],
         { cancelable: true })
-
     }
 
     const handleUpdateProducts = (key: string) => {
@@ -46,9 +41,7 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
     const submitHandler = (text: string)=>{
         if(text.length !== 0){
             setProduct((prevProduct)=>
-            {
-                return [{name: text,checked: false, toDelete: false, key: Math.random().toString() }, ...prevProduct ]
-            })
+            {return [{name: text,checked: false, toDelete: false, key: Math.random().toString() }, ...prevProduct ]})
         }
     }
     const [product, setProduct] = useState([{name:'example',checked: false, toDelete: false,key:'1'}]);

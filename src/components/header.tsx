@@ -1,7 +1,6 @@
 import React from 'react'
 import {StyleSheet, Text, View} from "react-native";
 
-
 export default function Header({title}:{ title: string}){
     return(
         <View style={styles.header}>
@@ -19,12 +18,15 @@ const styles = StyleSheet.create(
             height: '100%',
             flexDirection: 'row',
             alignItems:'center',
-            justifyContent:'center'
+            justifyContent:'center',
         },
         headerText:{
+            borderRadius: 10,
+            backgroundColor:'#f01d71',
+            padding: 8,
             fontWeight:'bold',
             fontSize: 20,
-            color: '#333',
+            color: 'white',
             letterSpacing:1,
         },
     }
