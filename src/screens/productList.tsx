@@ -11,10 +11,10 @@ import { AsyncStorage } from 'react-native';
 
 export default function ProductList({navigation, route}: RouteNavProps<'ProductList'>) {
 
-
     /*
      Functionality of productList
     */
+
     const removeAll = () =>{
         Alert.alert('REMOVE ALL ', 'All products will be removed',[
                 {text: "Cancel", style: "cancel"},
@@ -59,6 +59,7 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
     /*
      Async Storage  for productList
     */
+
     const STORAGE_KEY = '@product_key'
     const saveData = async () => {
         try {
@@ -66,9 +67,8 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
                  STORAGE_KEY,
                  JSON.stringify(product)
             );
-            console.log(await AsyncStorage.getItem(STORAGE_KEY))
         } catch (error) {
-            alert("something get wrong");
+            alert("something get wrong with data saving");
         }
     };
 
@@ -80,7 +80,7 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
             }
         }
         catch (error) {
-            alert("something get wrong");
+            alert("something get wrong with data reading");
         }
     };
 
