@@ -4,7 +4,8 @@ import { CheckBox } from 'react-native-elements'
 import {RouteNavProps} from "../paramlist/RouteParamList";
 import {Card} from "../components/card"
 import {MaterialIcons} from '@expo/vector-icons'
-
+import AddButton from '../components/addButton'
+import TrashButton from '../components/trashButton'
 export default function ProductList({navigation, route}: RouteNavProps<'ProductList'>) {
 
     const handleUpdateProducts = (key: string) => {
@@ -39,16 +40,18 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
         }
     }
     const [product, setProduct] = useState([{name:'example',checked: false, toDelete: false,key:'1'}]);
-
     return (
-        <View>
+        <View style={styles.container}>
             <FlatList
+                style={styles.content}
                 data={product}
                 renderItem={({item})=>(
                     <View>
                         <Card>
                             <Text>{item.name}</Text>
+                            <View>
                                 {  !item.toDelete &&   <CheckBox
+                                    containerStyle={styles.checkbox}
                                     iconType='material'
                                     checkedIcon='clear'
                                     uncheckedIcon='circle'
@@ -65,11 +68,17 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
                                         color='black'/>
                                     }
                                 </TouchableOpacity>
+                            </View>
                         </Card>
                     </View>
                 )}
             />
-            <Button title="+" onPress={()=> {navigation.navigate('AddProduct', {submitHandler})}}/>
+            <View style={styles.buttonTrash}>
+                <TrashButton onPress={()=> console.log("xd")}/>
+            </View>
+            <View style={styles.buttonAdd}>
+                <AddButton   text="+" onPress={()=> {navigation.navigate('AddProduct', {submitHandler})}}/>
+            </View>
         </View>
     );
 }
@@ -78,8 +87,32 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
 
 
 const styles = StyleSheet.create({
-    item:{
-
-    }
+    container:{
+        flex:1,
+        backgroundColor: '#fff',
+    },
+    content:{
+        flex:1,
+        marginHorizontal:20,
+        marginBottom:110
+    },
+    checkbox:
+        {
+            marginRight: -10
+        },
+    buttonAdd: {
+        flex: 1,
+        position:'absolute',
+        bottom:0,
+        alignSelf: "flex-end",
+        padding: 12
+    },
+    buttonTrash: {
+        flex: 1,
+        position:'absolute',
+        bottom:0,
+        alignSelf: "flex-start",
+        padding: 12
+    },
 
 })

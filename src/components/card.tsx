@@ -21,17 +21,22 @@ const styles = StyleSheet.create(
             shadowColor:'#333',
             shadowOpacity: 0.3,
             shadowRadius: 2,
-            marginVertical: 6,
-            marginHorizontal: 4,
-            marginLeft: 20,
-            marginRight: 2
+            marginTop: 15,
+            marginBottom: 5,
+            marginHorizontal: 5
+
         },
         cardContent:{
+            height:30,
             marginVertical: 10,
             marginHorizontal: 18,
             alignItems: 'center',
+            flexDirection:'row',
+            justifyContent: "space-between",
         }
-    }
+
+}
+
 
 )
 
