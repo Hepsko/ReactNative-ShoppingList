@@ -24,13 +24,15 @@ const styles = StyleSheet.create(
             marginVertical: 6,
             marginHorizontal: 4,
             marginLeft: 20,
-            marginRight: 20
+            marginRight: 2
         },
         cardContent:{
             marginVertical: 10,
             marginHorizontal: 18,
-            alignItems: 'center'
+            alignItems: 'center',
         }
     }
 
 )
+
+
