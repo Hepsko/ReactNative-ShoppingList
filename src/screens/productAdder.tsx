@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Button,  TextInput, View, StyleSheet} from 'react-native';
 import {RouteNavProps} from "../paramlist/RouteParamList";
 import ApproveButton from '../components/approveButton'
+
 
 export default function AddProduct({navigation, route}:RouteNavProps<'AddProduct'>) {
     const [text, setText]= useState('');

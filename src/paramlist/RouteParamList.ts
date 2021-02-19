@@ -5,11 +5,18 @@ export type RouteParamList={
     ProductList: undefined,
     AddProduct:
         {
-            submitHandler: (text: string) => void
+            submitHandler: (text: string) => void,
         },
 }
 
 export type RouteNavProps<T extends keyof RouteParamList> ={
     navigation: StackNavigationProp<RouteParamList, T>;
     route: RouteProp<RouteParamList, T>
+}
+
+export type Product ={
+    name: string,
+    checked: boolean,
+    toDelete: boolean,
+    key: string
 }

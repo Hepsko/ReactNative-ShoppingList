@@ -1,13 +1,20 @@
-import React, { useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Text, View, FlatList, TouchableOpacity, StyleSheet, Alert} from 'react-native';
 import { CheckBox } from 'react-native-elements'
 import {RouteNavProps} from "../paramlist/RouteParamList";
+import {Product} from "../paramlist/RouteParamList";
 import {Card} from "../components/card"
 import {MaterialIcons} from '@expo/vector-icons'
 import AddButton from '../components/addButton'
 import TrashButton from '../components/trashButton'
+import { AsyncStorage } from 'react-native';
+
 export default function ProductList({navigation, route}: RouteNavProps<'ProductList'>) {
 
+
+    /*
+     Functionality of productList
+    */
     const removeAll = () =>{
         Alert.alert('REMOVE ALL ', 'All products will be removed',[
                 {text: "Cancel", style: "cancel"},
@@ -36,15 +43,55 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
                 return product.key === key ? { ...product, toDelete: !product.toDelete } : product;
             }),
         );
+
     }
 
     const submitHandler = (text: string)=>{
         if(text.length !== 0){
             setProduct((prevProduct)=>
-            {return [{name: text,checked: false, toDelete: false, key: Math.random().toString() }, ...prevProduct ]})
+            {
+                return [{name: text,checked: false, toDelete: false, key: Math.random().toString() }, ...prevProduct ]
+            })
         }
     }
-    const [product, setProduct] = useState([{name:'example',checked: false, toDelete: false,key:'1'}]);
+    const [product, setProduct] = useState<Product[]>([]);
+
+    /*
+     Async Storage  for productList
+    */
+    const STORAGE_KEY = '@product_key'
+    const saveData = async () => {
+        try {
+             AsyncStorage.setItem(
+                 STORAGE_KEY,
+                 JSON.stringify(product)
+            );
+            console.log(await AsyncStorage.getItem(STORAGE_KEY))
+        } catch (error) {
+            alert("something get wrong");
+        }
+    };
+
+   const readData = async () => {
+        try {
+            const value = await AsyncStorage.getItem(STORAGE_KEY);
+            if (value != null) {
+              setProduct(JSON.parse(value));
+            }
+        }
+        catch (error) {
+            alert("something get wrong");
+        }
+    };
+
+    useEffect(() => {
+        readData()
+    },[])
+
+    useEffect(() => {
+        saveData()
+    },[product])
+
     return (
         <View style={styles.container}>
             <FlatList
@@ -79,7 +126,7 @@ export default function ProductList({navigation, route}: RouteNavProps<'ProductL
                 )}
             />
             <View style={styles.buttonTrash}>
-                <TrashButton onPress={()=> removeAll()}/>
+                <TrashButton onPress={()=> {removeAll() }}/>
             </View>
             <View style={styles.buttonAdd}>
                 <AddButton   text="+" onPress={()=> {navigation.navigate('AddProduct', {submitHandler})}}/>
@@ -99,10 +146,9 @@ const styles = StyleSheet.create({
         marginHorizontal:20,
         marginBottom:110,
     },
-    checkbox:
-        {
-            marginRight: -10
-        },
+    checkbox: {
+        marginRight: -10
+    },
     buttonAdd: {
         flex: 1,
         position:'absolute',
