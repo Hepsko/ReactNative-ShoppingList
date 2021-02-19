@@ -1,43 +1,33 @@
-import React from 'react'
-import {StyleSheet, View} from "react-native";
+import React from "react";
+import { StyleSheet, View } from "react-native";
 
-export const  Card= (props:any) =>{
-    return (
-        <View style={styles.card}>
-            <View style={styles.cardContent}>
-                {props.children}
-            </View>
-        </View>
-    )
-}
+export const Card = (props: any) => {
+  return (
+    <View style={styles.card}>
+      <View style={styles.cardContent}>{props.children}</View>
+    </View>
+  );
+};
 
-const styles = StyleSheet.create(
-    {
-        card:{
-            borderRadius: 6,
-            elevation: 3,
-            backgroundColor: '#fff',
-            shadowOffset:{width:1, height:1},
-            shadowColor:'#333',
-            shadowOpacity: 0.3,
-            shadowRadius: 2,
-            marginTop: 15,
-            marginBottom: 5,
-            marginHorizontal: 5
-
-        },
-        cardContent:{
-            height:30,
-            marginVertical: 10,
-            marginHorizontal: 18,
-            alignItems: 'center',
-            flexDirection:'row',
-            justifyContent: "space-between",
-        }
-
-}
-
-
-)
-
-
+const styles = StyleSheet.create({
+  card: {
+    borderRadius: 6,
+    elevation: 3,
+    backgroundColor: "#fff",
+    shadowOffset: { width: 1, height: 1 },
+    shadowColor: "#333",
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    marginTop: 15,
+    marginBottom: 5,
+    marginHorizontal: 5,
+  },
+  cardContent: {
+    height: 30,
+    marginVertical: 10,
+    marginHorizontal: 18,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+});
