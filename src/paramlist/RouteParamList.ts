@@ -13,7 +13,7 @@ export type RouteNavProps<T extends keyof RouteParamList> = {
   route: RouteProp<RouteParamList, T>;
 };
 
-export type Hint = {
+export type Hints = {
   suggestion: string;
   key: string;
 };

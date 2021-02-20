@@ -9,16 +9,20 @@ import {
   TouchableOpacity,
   Text,
 } from "react-native";
-import {  RouteNavProps } from "../paramlist/RouteParamList";
+import { RouteNavProps } from "../paramlist/RouteParamList";
 import ApproveButton from "../components/approveButton";
-import { Hint } from "../paramlist/RouteParamList";
+import { Hints } from "../paramlist/RouteParamList";
 export default function AddProduct({
   navigation,
   route,
 }: RouteNavProps<"AddProduct">) {
+  /*
+    Functionality of productAdder
+   */
+
   const [text, setText] = useState("");
-  const [hints, setHints] = useState<Hint[]>([]);
-  const [showSuggestion, setShowSuggestion] = useState<Hint[]>();
+  const [hints, setHints] = useState<Hints[]>([]);
+  const [showSuggestion, setShowSuggestion] = useState<Hints[]>();
   const [visable, setVisable] = useState(false);
 
   const findPattern = (searched: string) => {
@@ -38,7 +42,9 @@ export default function AddProduct({
   };
   const { submitHandler } = route.params;
 
-  const searchProduct = (text: string) => {};
+  /*
+      Async Storage  for productAdder - support for input text suggestions
+     */
 
   const STORAGE_KEY = "@hint_key";
   const saveData = async () => {
@@ -87,7 +93,8 @@ export default function AddProduct({
               onPress={() => {
                 setText(item.suggestion);
                 setVisable(false);
-              }}>
+              }}
+            >
               <View style={styles.suggestion}>
                 <Text>{item.suggestion}</Text>
               </View>
@@ -98,7 +105,11 @@ export default function AddProduct({
       <ApproveButton
         text="Approve product"
         onPress={() => {
-          setHints([...hints,{suggestion:text, key:Math.random().toString()}])
+          setHints([
+            ...hints.filter((product) => product.suggestion != text),
+            { suggestion: text, key: Math.random().toString() },
+          ]);
+
           submitHandler(text);
           navigation.navigate("ProductList");
         }}
