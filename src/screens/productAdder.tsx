@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  Button,
   TextInput,
   View,
   StyleSheet,
@@ -8,9 +7,11 @@ import {
   FlatList,
   TouchableOpacity,
   Text,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 import { RouteNavProps } from "../paramlist/RouteParamList";
-import ApproveButton from "../components/approveButton";
+import AddButton from "../components/addButton";
 import { Hints } from "../paramlist/RouteParamList";
 export default function AddProduct({
   navigation,
@@ -75,46 +76,51 @@ export default function AddProduct({
   }, [hints]);
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        value={text}
-        onFocus={() => setVisable(true)}
-        autoCompleteType={"username"}
-        style={styles.input}
-        placeholder="Type product"
-        onChangeText={changeHandler}
-      />
-      {visable && (
-        <FlatList
-          data={showSuggestion}
-          style={styles.suggestions}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => {
-                setText(item.suggestion);
-                setVisable(false);
-              }}
-            >
-              <View style={styles.suggestion}>
-                <Text>{item.suggestion}</Text>
-              </View>
-            </TouchableOpacity>
-          )}
+    <TouchableWithoutFeedback
+      onPress={() => {
+        Keyboard.dismiss();
+      }}
+    >
+      <View style={styles.container}>
+        <TextInput
+          value={text}
+          onFocus={() => setVisable(true)}
+          style={styles.input}
+          placeholder="Type product"
+          onChangeText={changeHandler}
         />
-      )}
-      <ApproveButton
-        text="Approve product"
-        onPress={() => {
-          setHints([
-            ...hints.filter((product) => product.suggestion != text),
-            { suggestion: text, key: Math.random().toString() },
-          ]);
-
-          submitHandler(text);
-          navigation.navigate("ProductList");
-        }}
-      />
-    </View>
+        {visable && (
+          <FlatList
+            data={showSuggestion}
+            style={styles.suggestions}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={styles.suggestion}
+                onPress={() => {
+                  setText(item.suggestion);
+                  setVisable(false);
+                }}
+              >
+                <Text>{item.suggestion}</Text>
+              </TouchableOpacity>
+            )}
+          />
+        )}
+        <View style={styles.buttonPosition}>
+          <AddButton
+            text="+"
+            onPress={() => {
+              setHints([
+                ...hints.filter((product) => product.suggestion != text),
+                { suggestion: text, key: Math.random().toString() },
+              ]);
+              submitHandler(text);
+              navigation.navigate("ProductList");
+            }}
+          />
+        </View>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 const styles = StyleSheet.create({
@@ -123,6 +129,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   input: {
+    fontWeight: "bold",
     textAlign: "center",
     alignItems: "center",
     paddingHorizontal: 8,
@@ -137,11 +144,12 @@ const styles = StyleSheet.create({
       width: 0,
       height: 3,
     },
-    shadowOpacity: 0.27,
+    shadowOpacity: 0.4,
     shadowRadius: 4,
-    elevation: 1.25,
+    elevation: 1.4,
   },
   suggestions: {
+    flex: 1,
     minHeight: 0,
     maxHeight: 150,
   },
@@ -152,6 +160,14 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     marginHorizontal: 12,
     borderWidth: 2,
+    borderStyle: "dashed",
     borderColor: "pink",
+  },
+  buttonPosition: {
+    flex: 1,
+    position: "absolute",
+    bottom: 0,
+    alignSelf: "flex-end",
+    padding: 12,
   },
 });

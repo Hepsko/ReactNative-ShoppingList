@@ -19,7 +19,6 @@ export default function ApproveButton({
 const styles = StyleSheet.create({
   button: {
     borderRadius: 5,
-    paddingBottom: 5,
     backgroundColor: "#f01d71",
     justifyContent: "center",
     shadowColor: "#000",
@@ -30,13 +29,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.34,
     shadowRadius: 6.27,
     elevation: 8,
-    marginVertical: 20,
-    marginHorizontal: 15,
+    marginVertical: 25,
+    marginHorizontal: 105,
     padding: 5,
   },
   buttonText: {
+
+    fontStyle:'italic',
     color: "white",
-    fontSize: 20,
+    fontSize: 18,
     textAlign: "center",
   },
 });
