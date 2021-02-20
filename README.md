@@ -41,7 +41,7 @@ expo start
 * There is a button to remove all items, it uses an **alert**
 
 
-# Screen shoots
+# Screenshots
 <p align="center">
 <img  alt="Screen9" width="400" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_9.png" style="float: left;  padding-right: 10px;"/>
 <img  alt="Screen1"  width="400" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_1.png" style="float: left; padding-right: 10px;"/>
