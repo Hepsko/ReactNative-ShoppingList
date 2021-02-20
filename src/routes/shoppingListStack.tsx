@@ -7,7 +7,7 @@ import { RouteParamList } from "../paramlist/RouteParamList";
 import Header from "../components/header";
 
 interface RoutersProps {}
-export const Home: React.FC<RoutersProps> = ({}) => {
+export const Navigation: React.FC<RoutersProps> = ({}) => {
   const Stack = createStackNavigator<RouteParamList>();
   return (
     <NavigationContainer>

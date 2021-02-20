@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  LogBox,
 } from "react-native";
 import { CheckBox } from "react-native-elements";
 import { RouteNavProps } from "../paramlist/RouteParamList";
@@ -15,7 +16,6 @@ import { MaterialIcons } from "@expo/vector-icons";
 import AddButton from "../components/addButton";
 import TrashButton from "../components/trashButton";
 import { AsyncStorage } from "react-native";
-
 export default function ProductList({
   navigation,
   route,
@@ -36,7 +36,7 @@ export default function ProductList({
     );
   };
 
-  const handleUpdateProducts = (key: string) => {
+  const checkProduct = (key: string) => {
     setProduct((prevProducts) =>
       prevProducts.map((product) => {
         return product.key === key
@@ -52,7 +52,7 @@ export default function ProductList({
     });
   };
 
-  const handleDeleteProducts = (key: string) => {
+  const setForDelete = (key: string) => {
     setProduct((prevProducts) =>
       prevProducts.map((product) => {
         return product.key === key
@@ -111,13 +111,14 @@ export default function ProductList({
     saveData();
   }, [product]);
 
+
   return (
     <View style={styles.container}>
       <FlatList
         style={styles.content}
         data={product}
         renderItem={({ item }) => (
-          <TouchableOpacity onLongPress={() => handleDeleteProducts(item.key)}>
+          <TouchableOpacity onLongPress={() => setForDelete(item.key)}>
             <View>
               <Card>
                 <Text>{item.name}</Text>
@@ -130,7 +131,7 @@ export default function ProductList({
                       uncheckedIcon="circle"
                       checkedColor="green"
                       checked={item.checked}
-                      onPress={() => handleUpdateProducts(item.key)}
+                      onPress={() => checkProduct(item.key)}
                     />
                   )}
                   <TouchableOpacity onPress={() => deleteProduct(item.key)}>
