@@ -42,6 +42,6 @@ expo start
 
 
 # Screen shoots
-<img width="350" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_1.png">
-<img width="350" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_1.png">
-<img width="350" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_1.png">
+<img style="float: right;" width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_1.png">
+<img style="float: right;" width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_1.png">
+<img  style="float: right;" width="30" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_1.png">
