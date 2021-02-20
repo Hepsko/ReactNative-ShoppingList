@@ -1,16 +1,16 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RouteProp } from "@react-navigation/native";
 
-export type RouteParamList = {
+export type ParamList = {
   ProductList: undefined;
   AddProduct: {
     submitHandler: (text: string) => void;
   };
 };
 
-export type RouteNavProps<T extends keyof RouteParamList> = {
-  navigation: StackNavigationProp<RouteParamList, T>;
-  route: RouteProp<RouteParamList, T>;
+export type RouteNavProps<T extends keyof ParamList> = {
+  navigation: StackNavigationProp<ParamList, T>;
+  route: RouteProp<ParamList, T>;
 };
 
 export type Hints = {

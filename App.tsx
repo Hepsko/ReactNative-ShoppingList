@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {LogBox, StyleSheet, Text, View} from 'react-native';
-import {Navigation} from './src/routes/shoppingListStack'
+import {Navigation} from './src/routes/ShoppingListStackNavigation'
 LogBox.ignoreAllLogs(true);
 
 

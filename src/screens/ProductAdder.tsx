@@ -10,9 +10,9 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-import { RouteNavProps } from "../paramlist/RouteParamList";
-import AddButton from "../components/addButton";
-import { Hints } from "../paramlist/RouteParamList";
+import { RouteNavProps } from "../paramlist/paramList";
+import AddButton from "../components/AddButton";
+import { Hints } from "../paramlist/paramList";
 export default function AddProduct({
   navigation,
   route,

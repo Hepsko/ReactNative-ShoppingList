@@ -9,12 +9,12 @@ import {
   LogBox,
 } from "react-native";
 import { CheckBox } from "react-native-elements";
-import { RouteNavProps } from "../paramlist/RouteParamList";
-import { Product } from "../paramlist/RouteParamList";
-import { Card } from "../components/card";
+import { RouteNavProps } from "../paramlist/paramList";
+import { Product } from "../paramlist/paramList";
+import { Card } from "../components/Card";
 import { MaterialIcons } from "@expo/vector-icons";
-import AddButton from "../components/addButton";
-import TrashButton from "../components/trashButton";
+import AddButton from "../components/AddButton";
+import TrashButton from "../components/TrashButton";
 import { AsyncStorage } from "react-native";
 export default function ProductList({
   navigation,

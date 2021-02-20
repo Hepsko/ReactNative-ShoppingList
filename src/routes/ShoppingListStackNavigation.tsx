@@ -1,14 +1,14 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import ProductList from "../screens/productList";
-import AddProduct from "../screens/productAdder";
-import { RouteParamList } from "../paramlist/RouteParamList";
-import Header from "../components/header";
+import ProductList from "../screens/ProductList";
+import AddProduct from "../screens/ProductAdder";
+import { ParamList } from "../paramlist/paramList";
+import Header from "../components/Header";
 
 interface RoutersProps {}
 export const Navigation: React.FC<RoutersProps> = ({}) => {
-  const Stack = createStackNavigator<RouteParamList>();
+  const Stack = createStackNavigator<ParamList>();
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="ProductList">
