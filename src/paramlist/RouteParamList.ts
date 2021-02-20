@@ -13,9 +13,16 @@ export type RouteNavProps<T extends keyof RouteParamList> = {
   route: RouteProp<RouteParamList, T>;
 };
 
+export type Hint = {
+  suggestion: string;
+  key: string;
+};
+
+
 export type Product = {
   name: string;
   checked: boolean;
   toDelete: boolean;
   key: string;
 };
+
