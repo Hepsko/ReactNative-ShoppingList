@@ -43,9 +43,9 @@ expo start
 
 # Screen shoots
 <div style="text-align: center">
-<img  alt="Screen1"  width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_1.png" style="float: left; margin-right: 50px;"/>
-<img  alt="Screen6" width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_6.png" style="float: left; margin-right: 50px;"/>
-<img  alt="Screen7" width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_7.png" style="float: left; margin-right: 50px;"/>
-<img  alt="Screen8" width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_8.png" style="float: left; margin-right: 50px;"/>
-<img  alt="Screen9" width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_9.png" style="float: left; margin-right: 50px;"/>
+<img  alt="Screen1"  width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_1.png" style="float: left; padding-right: 10px;"/>
+<img  alt="Screen6" width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_6.png" style="float: left;  padding-right: 10px;"/>
+<img  alt="Screen7" width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_7.png" style="float: left;  padding-right: 10px;"/>
+<img  alt="Screen8" width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_8.png" style="float: left;  padding-right: 10px;"/>
+<img  alt="Screen9" width="300" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_9.png" style="float: left;  padding-right: 10px;"/>
 </div>
