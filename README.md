@@ -42,4 +42,4 @@ expo start
 
 
 # Screen shoots
-
+<img width="200" src="https://github.com/Hepsko/ReactNative-ShoppingList/blob/main/app_screenshots/Screenshot_1.png">
