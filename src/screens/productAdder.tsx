@@ -165,9 +165,9 @@ const styles = StyleSheet.create({
   },
   buttonPosition: {
     flex: 1,
-    position: "absolute",
-    bottom: 0,
-    alignSelf: "flex-end",
+    position: 'relative',
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 12,
   },
 });

@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   buttonText: {
-
     fontStyle:'italic',
     color: "white",
     fontSize: 18,
